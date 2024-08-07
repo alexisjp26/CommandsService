@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <ContainerRepository>commandsservice</ContainerRepository>
+    <ContainerFamily>alpine</ContainerFamily>
   </PropertyGroup>
 
   <ItemGroup>
