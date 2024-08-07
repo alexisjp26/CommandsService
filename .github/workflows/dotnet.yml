@@ -10,6 +10,7 @@ on:
     branches: ["main"]
 env:
   commandsservice_image: "${{ secrets.DOCKER_HUB_USERNAME }}/commandsservice"
+  project_image_name: "commandsservice"
 
 jobs:
   build:
@@ -30,7 +31,7 @@ jobs:
       - name: Create Docker Image
         run: dotnet publish ./CommandsService.csproj /t:PublishContainer -r linux-x64
       - name: Change Image Tag
-        run: docker tag platformservice ${{ env.commandsservice_image }}
+        run: docker tag ${{ env.project_image_name }} ${{ env.commandsservice_image }}
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
